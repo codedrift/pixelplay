@@ -19,6 +19,10 @@ socketIoServer.on("connection", (socket: SocketIo.Socket) => {
 const width = 50;
 const height = 50;
 
+
+let frameCounter = 0;
+let slowFrames = 0;
+
 // center
 const offsetX = 23;
 const offsetY = 23;
@@ -40,7 +44,10 @@ setInterval(() => {
 	myGame.setMap(starter);
 }, 10000);
 
+const maxFrameTime = 1000 / appFps;
+
 setInterval(() => {
+	const startTime = Date.now();
 	const currentCycle = myGame.cycle();
 	myGame.setMap(currentCycle.map);
 	// console.log(currentCycle, currentCycle)
@@ -54,9 +61,19 @@ setInterval(() => {
 		time: Date.now(),
 		points: frame
 	};
+
+	const endTime = Date.now() - startTime;
+
+	frameCounter++;
+
+	// console.log("Frame calculated in ", endTime, "ms");
+	if(maxFrameTime <= endTime) {
+		console.warn("Frame calculated too slow!", endTime,"ms ", slowFrames / frameCounter, "% failed")
+		slowFrames++;
+	}
 	// console.log("Emitting frame", message);
 	socketIoServer.emit("message", message);
-}, 1000 / appFps);
+},maxFrameTime );
 
 app.get("/health", (req, res) => res.send("OK"));
 
