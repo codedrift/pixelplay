@@ -1,0 +1,13 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"lib": ["esnext"],
+		"outDir": "./dist",
+		"resolveJsonModule": true,
+		"strict": true,
+		"noImplicitAny": true,
+		"esModuleInterop": true
+	  }
+}

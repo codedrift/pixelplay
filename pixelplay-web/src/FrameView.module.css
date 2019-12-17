@@ -1,0 +1,13 @@
+
+.root {
+	height: 100%;
+}
+
+.canvasWrapper {
+	background-color: black;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}

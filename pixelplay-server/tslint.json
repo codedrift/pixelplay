@@ -1,0 +1,12 @@
+{
+	"extends": ["tslint:recommended", "tslint-eslint-rules", "tslint-config-prettier"],
+	"rules": {
+		"interface-name": false,
+		"member-access": false,
+		"ordered-imports": false,
+		"no-submodule-imports": false,
+		"object-literal-sort-keys": false,
+		"no-shadowed-variable": false,
+		"no-console": false
+	}
+}
