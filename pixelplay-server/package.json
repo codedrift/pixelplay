@@ -19,7 +19,7 @@
 		"@types/node": "^12.12.17",
 		"@types/socket.io": "^2.1.4",
 		"dotenv": "^8.2.0",
-		"express": "^4.17.1",
+		"express": "^4.17.3",
 		"life-game": "^1.0.75",
 		"socket.io": "^2.3.0",
 		"tslint": "^5.20.1",
